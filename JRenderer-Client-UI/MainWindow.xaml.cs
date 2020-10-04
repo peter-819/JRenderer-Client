@@ -30,17 +30,17 @@ namespace JRenderer_Client
             InitializeComponent();
         }
         [DllImport("JRenderer-Client-Backend.dll")]
-        private extern static IntPtr InitOpenGL(IntPtr hwnd);
+        private extern static bool InitOpenGL(IntPtr hwnd,int width,int height);
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            IntPtr ptr = InitOpenGL(hwnd);
-            if (ptr != hwnd)
+            bool success = InitOpenGL(hwnd,450,800);
+            if (!success)
             {
                 Debugger.Break();
             }
         }
 
-        private void Frame_Initialized(object sender, EventArgs e)
+        private void Frame_Loaded(object sender, RoutedEventArgs e)
         {
             hwnd = new WindowInteropHelper(this).Handle;
         }
