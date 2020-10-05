@@ -5,8 +5,9 @@
 #define JAPI __declspec(dllexport)
 
 extern "C" {
+    HDC hDC;
 	JAPI bool InitOpenGL(HWND hwnd,int width,int height) {
-		HDC hDC = GetDC(hwnd);
+		hDC = GetDC(hwnd);
 
         PIXELFORMATDESCRIPTOR pfd = {
             sizeof(PIXELFORMATDESCRIPTOR),   // size of this pfd  
@@ -41,9 +42,14 @@ extern "C" {
         auto err = GetLastError();
         glewInit();
         glViewport(0, 0, width, height);
+        return true;
+	}
+    JAPI void OpenGLRender() {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         auto glerr = glGetError();
-        return true;
-	}
+    }
+    JAPI void OpenGLSwapBuffers() {
+        SwapBuffers(hDC);
+    }
 }
