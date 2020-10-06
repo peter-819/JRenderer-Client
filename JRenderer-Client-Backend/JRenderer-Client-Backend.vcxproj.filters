@@ -65,5 +65,11 @@
     <ClInclude Include="src\RenderSystem\OpenGL\GLInclude.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\RenderSystem\RenderSystem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderSystem\OpenGL\GLDevice.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

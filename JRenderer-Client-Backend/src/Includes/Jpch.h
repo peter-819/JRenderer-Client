@@ -29,3 +29,10 @@ typedef HWND PlatformWindowHandle;
 #else
 typedef void* PlatformWindowHandle;
 #endif
+
+enum {
+	OpenGL,
+	DirectX,
+	DXR
+};
+constexpr int RenderAPI = OpenGL;

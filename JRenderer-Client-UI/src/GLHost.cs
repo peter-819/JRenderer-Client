@@ -41,7 +41,7 @@ namespace JRenderer_Client.src
         [DllImport(BackendDll)]
         private static extern void OpenGLRender();
         [DllImport(BackendDll)]
-        private static extern void OpenGLSwapBuffers();
+        private static extern void Shutdown();
         #endregion
 
         private Border parent;
@@ -58,8 +58,8 @@ namespace JRenderer_Client.src
             while (isRunning)
             {
                 OpenGLRender();
-                OpenGLSwapBuffers();
             }
+            Shutdown();
         }
         protected override HandleRef BuildWindowCore(HandleRef hwndParent)
         {

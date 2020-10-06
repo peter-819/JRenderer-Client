@@ -1,12 +1,12 @@
 #include <Jpch.h>
-#include "RenderSystem/OpenGL/GLWindow.h"
+#include "RenderSystem/Window.h"
+#include <GL/gl.h>
 
-std::shared_ptr<JRenderer::GLWindow> window;
-HDC hDC;
+JRenderer::Window* window;
 JAPI bool InitOpenGL(HWND hwnd,int width,int height) {
     Log::Init();
 
-    window.reset(new JRenderer::GLWindow(hwnd, width, height));
+    window = JRenderer::Window::Create(hwnd,width,height);
     return true;
 }
 JAPI void OpenGLRender() {
@@ -16,5 +16,6 @@ JAPI void OpenGLRender() {
     auto glerr = glGetError();
     window->EndFrame();
 }
-JAPI void OpenGLSwapBuffers() {
+JAPI void Shutdown() {
+    delete window;
 }
