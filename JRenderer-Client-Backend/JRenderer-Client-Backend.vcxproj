@@ -166,6 +166,7 @@
     <ClCompile Include="src\Jlog.cpp" />
     <ClCompile Include="src\RenderSystem\Device.cpp" />
     <ClCompile Include="src\RenderSystem\OpenGL\GLContext.cpp" />
+    <ClCompile Include="src\RenderSystem\OpenGL\GLDevice.cpp" />
     <ClCompile Include="src\RenderSystem\OpenGL\GLWindow.cpp" />
     <ClCompile Include="src\RenderSystem\Window.cpp" />
     <ClCompile Include="src\test.cpp" />

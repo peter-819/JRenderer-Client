@@ -3,6 +3,7 @@
 #include "RenderSystem/OpenGL/GLDevice.h"
 
 namespace JRenderer {
+	Device* Device::mInstance = nullptr;
 	Device& Device::Instance()
 	{
 		if (!mInstance) {
@@ -20,6 +21,12 @@ namespace JRenderer {
 		default:
 			assert(false);
 			return nullptr;
+		}
+	}
+	void Device::Destroy()
+	{
+		if (mInstance) {
+			delete mInstance;
 		}
 	}
 }
