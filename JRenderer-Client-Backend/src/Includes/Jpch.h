@@ -12,8 +12,12 @@
 #include <map>
 #include <string>
 #include <set>
+#include <algorithm>
 
 #include <type_traits>
+#include <chrono>
+#include <cassert>
+#include <exception>
 
 #ifdef _WINDOWS
 #include <Windows.h>
