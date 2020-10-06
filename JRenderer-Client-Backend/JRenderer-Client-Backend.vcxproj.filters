@@ -21,5 +21,49 @@
     <ClCompile Include="src\test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\RenderSystem\Device.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Jlog.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Includes\Jpch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderSystem\Window.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderSystem\OpenGL\GLWindow.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderSystem\OpenGL\GLContext.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\RenderSystem\Device.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Jlog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Includes\Jpch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderSystem\OpenGL\GLContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderSystem\Window.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderSystem\OpenGL\GLWindow.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderSystem\OpenGL\GLInclude.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

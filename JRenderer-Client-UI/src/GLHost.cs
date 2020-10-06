@@ -12,7 +12,8 @@ namespace JRenderer_Client.src
 {
     class GLHost : HwndHost
     {
-        #region DLL_Import
+        #region Win32_Dll_Import
+
         [DllImport("user32.dll", EntryPoint = "CreateWindowEx", CharSet = CharSet.Unicode)]
         internal static extern IntPtr CreateWindowEx(
             int dwExStyle,
@@ -30,12 +31,16 @@ namespace JRenderer_Client.src
         internal static extern bool DestroyWindow(IntPtr hwnd);
         internal const int WS_CHILD = 0x40000000, WS_VISIBLE = 0x10000000;
 
-        [DllImport("JRenderer-Client-Backend.dll")]
+        #endregion
+
+        #region Backend_Dll_Import
+        private const string BackendDll = "JRenderer-Client-Backend.dll";
+        [DllImport(BackendDll)]
         private static extern bool InitOpenGL(IntPtr hwnd, int width, int height);
 
-        [DllImport("JRenderer-Client-Backend.dll")]
+        [DllImport(BackendDll)]
         private static extern void OpenGLRender();
-        [DllImport("JRenderer-Client-Backend.dll")]
+        [DllImport(BackendDll)]
         private static extern void OpenGLSwapBuffers();
         #endregion
 

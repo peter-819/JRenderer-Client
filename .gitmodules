@@ -4,3 +4,6 @@
 [submodule "JRenderer-Client-Backend/thirdParty/glew"]
 	path = JRenderer-Client-Backend/thirdParty/glew
 	url = git@github.com:nigels-com/glew.git
+[submodule "JRenderer-Client-Backend/thirdParty/spdlog"]
+	path = JRenderer-Client-Backend/thirdParty/spdlog
+	url = git@github.com:gabime/spdlog.git

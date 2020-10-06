@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Windows.CppWinRT.2.0.200921.6\build\native\Microsoft.Windows.CppWinRT.props" Condition="Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.200921.6\build\native\Microsoft.Windows.CppWinRT.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -127,10 +128,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;JRENDERERCLIENTBACKEND_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile>
-      </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>D:\JRenderer\JRenderer-Client\JRenderer-Client-Backend\thirdParty\glew\include</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>Jpch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>D:\JRenderer\JRenderer-Client\JRenderer-Client-Backend\thirdParty\glew\include;D:\JRenderer\JRenderer-Client\JRenderer-Client-Backend\thirdParty\spdlog\include;D:\JRenderer\JRenderer-Client\JRenderer-Client-Backend\src\Includes;$(ProjectDir)src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -162,9 +162,35 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="src\Includes\Jpch.cpp" />
+    <ClCompile Include="src\Jlog.cpp" />
+    <ClCompile Include="src\RenderSystem\Device.cpp" />
+    <ClCompile Include="src\RenderSystem\OpenGL\GLContext.cpp" />
+    <ClCompile Include="src\RenderSystem\OpenGL\GLWindow.cpp" />
+    <ClCompile Include="src\RenderSystem\Window.cpp" />
     <ClCompile Include="src\test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Jlog.h" />
+    <ClInclude Include="src\Includes\Jpch.h" />
+    <ClInclude Include="src\RenderSystem\Device.h" />
+    <ClInclude Include="src\RenderSystem\OpenGL\GLInclude.h" />
+    <ClInclude Include="src\RenderSystem\OpenGL\GLContext.h" />
+    <ClInclude Include="src\RenderSystem\OpenGL\GLWindow.h" />
+    <ClInclude Include="src\RenderSystem\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\Microsoft.Windows.CppWinRT.2.0.200921.6\build\native\Microsoft.Windows.CppWinRT.targets" Condition="Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.200921.6\build\native\Microsoft.Windows.CppWinRT.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.200921.6\build\native\Microsoft.Windows.CppWinRT.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.CppWinRT.2.0.200921.6\build\native\Microsoft.Windows.CppWinRT.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.200921.6\build\native\Microsoft.Windows.CppWinRT.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.CppWinRT.2.0.200921.6\build\native\Microsoft.Windows.CppWinRT.targets'))" />
+  </Target>
 </Project>
