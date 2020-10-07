@@ -18,6 +18,7 @@
 #include <chrono>
 #include <cassert>
 #include <exception>
+#include <cstdint>
 
 #ifdef _WINDOWS
 #include <Windows.h>
