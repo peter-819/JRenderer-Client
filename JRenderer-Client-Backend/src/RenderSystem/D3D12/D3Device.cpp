@@ -118,7 +118,27 @@ namespace D3D {
         
         ComPtr<IDXGISwapChain4> dxgiSwapChain4;
         ComPtr<IDXGIFactory4> dxgiFactory4 = CreateFactory();
-        //TODO
+        
+        DXGI_SWAP_CHAIN_DESC1 desc;
+        desc.Width = width;
+        desc.Height = height;
+        desc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+        desc.Stereo = FALSE;
+        desc.SampleDesc = { 1,0 };
+        desc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+        desc.BufferCount = bufferCount;
+        desc.Scaling = DXGI_SCALING_STRETCH;
+        desc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
+        desc.AlphaMode = DXGI_ALPHA_MODE_UNSPECIFIED;
+        desc.Flags = CheckTearingSupport() ? DXGI_SWAP_CHAIN_FLAG_ALLOW_TEARING : 0;
+
+        ComPtr<IDXGISwapChain1> dxgiSwapChain1;
+        ThrowIfFailed(dxgiFactory4->CreateSwapChainForHwnd(
+            commandQueue.Get(), hwnd, &desc, nullptr, nullptr, &dxgiSwapChain1
+        ));
+        ThrowIfFailed(dxgiFactory4->MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER));
+        ThrowIfFailed(dxgiSwapChain1.As(&dxgiSwapChain4));
+        return dxgiSwapChain4;
     }
 }
 
