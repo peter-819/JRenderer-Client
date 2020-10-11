@@ -45,6 +45,9 @@
     <ClCompile Include="src\RenderSystem\D3D12\D3Device.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\RenderSystem\D3D12\D3DWindow.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -87,6 +90,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\RenderSystem\D3D12\D3Device.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderSystem\D3D12\D3DWindow.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
