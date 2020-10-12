@@ -11,7 +11,7 @@ namespace JImGui.Common
     public class Rect
     {
         Point p1, p2, p3, p4;
-        Rect(Point topLeft,int width,int height)
+        public Rect(Point topLeft,int width,int height)
         {
             p1 = topLeft;
             p2 = topLeft + new Point(width, 0);

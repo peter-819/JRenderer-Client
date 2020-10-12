@@ -4,7 +4,8 @@ using System.Text;
 
 namespace JImGui.GUI.Elements
 {
-    class Elements
+    public partial class Elements
     {
+
     }
 }

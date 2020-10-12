@@ -6,6 +6,6 @@ namespace JImGui.GUI
 {
     public abstract class Form
     {
-        public abstract void OnGUI();
+        protected internal abstract void OnGUI();
     }
 }

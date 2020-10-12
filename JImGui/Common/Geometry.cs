@@ -4,7 +4,7 @@ using System.Text;
 
 namespace JImGui.Common
 {
-    internal class Point
+    public class Point
     {
         public int x { get; set; }
         public int y { get; set; }
