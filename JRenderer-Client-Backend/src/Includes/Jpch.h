@@ -41,3 +41,10 @@ enum {
 	DXR
 };
 constexpr int RenderAPI = OpenGL;
+
+#include "RenderSystem/RenderEnums.h"
+
+
+union Handle {
+	uint32_t id;
+};

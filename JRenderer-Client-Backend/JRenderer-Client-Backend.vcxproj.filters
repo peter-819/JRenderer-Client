@@ -48,6 +48,15 @@
     <ClCompile Include="src\RenderSystem\D3D12\D3DWindow.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\RenderSystem\OpenGL\GLVertexBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderSystem\OpenGL\GLPSO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderSystem\OpenGL\GLProgram.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -93,6 +102,27 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\RenderSystem\D3D12\D3DWindow.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderSystem\VertexBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderSystem\Descriptors.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderSystem\OpenGL\GLVertexBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderSystem\RenderEnums.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderSystem\OpenGL\GLPSO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderSystem\Program.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderSystem\OpenGL\GLProgram.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

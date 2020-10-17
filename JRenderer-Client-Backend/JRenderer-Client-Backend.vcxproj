@@ -169,6 +169,9 @@
     <ClCompile Include="src\RenderSystem\Device.cpp" />
     <ClCompile Include="src\RenderSystem\OpenGL\GLContext.cpp" />
     <ClCompile Include="src\RenderSystem\OpenGL\GLDevice.cpp" />
+    <ClCompile Include="src\RenderSystem\OpenGL\GLProgram.cpp" />
+    <ClCompile Include="src\RenderSystem\OpenGL\GLPSO.cpp" />
+    <ClCompile Include="src\RenderSystem\OpenGL\GLVertexBuffer.cpp" />
     <ClCompile Include="src\RenderSystem\OpenGL\GLWindow.cpp" />
     <ClCompile Include="src\RenderSystem\Window.cpp" />
     <ClCompile Include="src\test.cpp" />
@@ -184,12 +187,19 @@
     <ClInclude Include="src\RenderSystem\D3D12\D3DWindow.h" />
     <ClInclude Include="src\RenderSystem\D3D12\d3dx12.h" />
     <ClInclude Include="src\RenderSystem\D3D12\Helpers.h" />
+    <ClInclude Include="src\RenderSystem\Descriptors.h" />
     <ClInclude Include="src\RenderSystem\Device.h" />
     <ClInclude Include="src\RenderSystem\OpenGL\GLDevice.h" />
     <ClInclude Include="src\RenderSystem\OpenGL\GLInclude.h" />
     <ClInclude Include="src\RenderSystem\OpenGL\GLContext.h" />
+    <ClInclude Include="src\RenderSystem\OpenGL\GLProgram.h" />
+    <ClInclude Include="src\RenderSystem\OpenGL\GLPSO.h" />
+    <ClInclude Include="src\RenderSystem\OpenGL\GLVertexBuffer.h" />
     <ClInclude Include="src\RenderSystem\OpenGL\GLWindow.h" />
+    <ClInclude Include="src\RenderSystem\Program.h" />
+    <ClInclude Include="src\RenderSystem\RenderEnums.h" />
     <ClInclude Include="src\RenderSystem\RenderSystem.h" />
+    <ClInclude Include="src\RenderSystem\VertexBuffer.h" />
     <ClInclude Include="src\RenderSystem\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

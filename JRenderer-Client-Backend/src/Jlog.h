@@ -18,11 +18,11 @@ private:
 	static std::shared_ptr<spdlog::logger> s_ClientLogger;
 };
 
-#define JE_CORE_ERROR(...)    ::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define JE_CORE_WARN(...)     ::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define JE_CORE_INFO(...)     ::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define JE_CORE_TRACE(...)    ::Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define JE_CORE_FATAL(...)    ::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define JR_ERROR(...)    ::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define JR_WARN(...)     ::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define JR_INFO(...)     ::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define JR_TRACE(...)    ::Log::GetCoreLogger()->trace(__VA_ARGS__)
+#define JR_FATAL(...)    ::Log::GetCoreLogger()->fatal(__VA_ARGS__)
 
 #define JE_CLIENT_ERROR(...)    ::Log::GetClientLogger()->error(__VA_ARGS__)
 #define JE_CLIENT_WARN(...)     ::Log::GetClientLogger()->warn(__VA_ARGS__)
