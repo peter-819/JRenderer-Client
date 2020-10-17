@@ -12,6 +12,7 @@ namespace JRenderer {
 
 	private:
 		void EnableDebugLayer();
+		void UpdateRenderTargetViews();
 
 	private:
 		static constexpr int g_NumFrames = 2;

@@ -140,6 +140,24 @@ namespace D3D {
         ThrowIfFailed(dxgiSwapChain1.As(&dxgiSwapChain4));
         return dxgiSwapChain4;
     }
+
+    ComPtr<ID3D12DescriptorHeap> CreateDescriptorHeap(ComPtr<ID3D12Device2> device, 
+        D3D12_DESCRIPTOR_HEAP_TYPE type, uint32_t numDescriptors) {
+        ComPtr<ID3D12DescriptorHeap> descriptorHeap;
+        D3D12_DESCRIPTOR_HEAP_DESC desc = {};
+        desc.NumDescriptors = numDescriptors;
+        desc.Type = type;
+        ThrowIfFailed(device->CreateDescriptorHeap(&desc, IID_PPV_ARGS(&descriptorHeap)));
+        return descriptorHeap;
+    }
+
+    ComPtr<ID3D12CommandAllocator> CreateCommandAllocator(ComPtr<ID3D12Device2> device,
+        D3D12_COMMAND_LIST_TYPE type) {
+        ComPtr<ID3D12CommandAllocator> commandAllocator;
+        ThrowIfFailed(device->CreateCommandAllocator(type, IID_PPV_ARGS(&commandAllocator)));
+        return commandAllocator;
+    }
+
 }
 
 namespace JRenderer {
@@ -158,4 +176,17 @@ namespace JRenderer {
          debugInterface->EnableDebugLayer();
     #endif
 	}
+
+    void D3Device::UpdateRenderTargetViews() {
+        auto rtvDescriptorSize = mDevice->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
+        CD3DX12_CPU_DESCRIPTOR_HANDLE handle(mRTVDescriptorHeap->GetCPUDescriptorHandleForHeapStart());
+        for (int i = 0; i < g_NumFrames; i++) {
+            ComPtr<ID3D12Resource> backBuffer;
+            ThrowIfFailed(mSwapChain->GetBuffer(i, IID_PPV_ARGS(&backBuffer)));
+            mDevice->CreateRenderTargetView(backBuffer.Get(), nullptr, handle);
+
+            mBackBuffers[i] = backBuffer;
+            handle.Offset(rtvDescriptorSize);
+        }
+    }
 }
