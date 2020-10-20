@@ -42,10 +42,7 @@
     <ClCompile Include="src\RenderSystem\OpenGL\GLDevice.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\RenderSystem\D3D12\D3Device.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\RenderSystem\D3D12\D3DWindow.cpp">
+    <ClCompile Include="thirdParty\glad\src\glad.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -78,21 +75,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\RenderSystem\OpenGL\GLDevice.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\RenderSystem\D3D12\D3DInclude.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\RenderSystem\D3D12\d3dx12.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\RenderSystem\D3D12\Helpers.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\RenderSystem\D3D12\D3Device.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\RenderSystem\D3D12\D3DWindow.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
