@@ -164,8 +164,6 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="src\Includes\Jpch.cpp" />
     <ClCompile Include="src\Jlog.cpp" />
-    <ClCompile Include="src\RenderSystem\D3D12\D3Device.cpp" />
-    <ClCompile Include="src\RenderSystem\D3D12\D3DWindow.cpp" />
     <ClCompile Include="src\RenderSystem\Device.cpp" />
     <ClCompile Include="src\RenderSystem\OpenGL\GLContext.cpp" />
     <ClCompile Include="src\RenderSystem\OpenGL\GLDevice.cpp" />
@@ -182,11 +180,6 @@
   <ItemGroup>
     <ClInclude Include="src\Jlog.h" />
     <ClInclude Include="src\Includes\Jpch.h" />
-    <ClInclude Include="src\RenderSystem\D3D12\D3Device.h" />
-    <ClInclude Include="src\RenderSystem\D3D12\D3DInclude.h" />
-    <ClInclude Include="src\RenderSystem\D3D12\D3DWindow.h" />
-    <ClInclude Include="src\RenderSystem\D3D12\d3dx12.h" />
-    <ClInclude Include="src\RenderSystem\D3D12\Helpers.h" />
     <ClInclude Include="src\RenderSystem\Descriptors.h" />
     <ClInclude Include="src\RenderSystem\Device.h" />
     <ClInclude Include="src\RenderSystem\OpenGL\GLDevice.h" />
