@@ -68,6 +68,7 @@
     <Compile Include="src\Network\ClientSend.cs" />
     <Compile Include="src\Network\Packet.cs" />
     <Compile Include="src\Network\ThreadManager.cs" />
+    <Compile Include="src\PpmHelper.cs" />
     <Page Include="GLwindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

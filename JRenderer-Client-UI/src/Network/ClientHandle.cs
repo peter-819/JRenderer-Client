@@ -1,3 +1,4 @@
+using JRenderer_Client;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,5 +21,12 @@ public class ClientHandle
         Client.instance.myId = _myId;
         ClientSend.WelcomeReceived();
         Client.instance.udp.Connect(((IPEndPoint)Client.instance.tcp.socket.Client.LocalEndPoint).Port);
+    }
+
+    public static void PpmReceived(Packet _packet)
+    {
+        int length = _packet.ReadInt();
+        byte[] data = _packet.ReadBytes(length);
+        PpmImage image = PpmImage.Deserialize(data);
     }
 }
