@@ -29,4 +29,17 @@ public class ClientHandle
         byte[] data = _packet.ReadBytes(length);
         PpmImage image = PpmImage.Deserialize(data);
     }
+
+    public static void LoginResultReceived(Packet packet)
+    {
+        bool res = packet.ReadBool();
+        if(res == true)
+        {
+            Console.WriteLine("Login success");
+        }
+        else
+        {
+            Console.WriteLine("Login failed");
+        }
+    }
 }

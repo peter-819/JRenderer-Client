@@ -247,7 +247,8 @@ public class Client
         packetHandlers = new Dictionary<int, PacketHandler>()
         {
             {(int)ServerPackets.welcome, ClientHandle.Welcome },
-            {(int)ServerPackets.ppmFile,ClientHandle.PpmReceived }
+            {(int)ServerPackets.ppmFile,ClientHandle.PpmReceived },
+            {(int)ServerPackets.LoginResult,ClientHandle.LoginResultReceived }
         };
         Console.WriteLine("initialized packets");
     }

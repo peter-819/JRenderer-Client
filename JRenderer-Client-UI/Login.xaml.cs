@@ -41,12 +41,7 @@ namespace JRenderer_Client
             string username = Username.Text;
             string password = Password.Password;
 
-            byte[] data = new byte[50000];
-            for(int i = 0; i < 50000; i++)
-            {
-                data[i] = 3;
-            }
-            ClientSend.SendData(data);
+            ClientSend.SendLoginData(username,password);
         }
     }
 }

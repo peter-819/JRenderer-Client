@@ -57,5 +57,15 @@ public class ClientSend
             SendUDPData(_packet);
         }
     }
+    public static void SendLoginData(string username, string password)
+    {
+        using(Packet _packet = new Packet((int)ClientPackets.sendLoginData))
+        {
+            _packet.Write(Client.instance.myId);
+            _packet.Write(username);
+            _packet.Write(password);
+            SendTCPData(_packet);
+        }
+    }
     #endregion
 }
