@@ -37,8 +37,8 @@ namespace JRenderer_Client
         public int width { get; set; }
         public int height { get; set; }
         public int colorRange { get; set; }
-        public Tuple<int, int, int>[] rgb;
-        
+        public byte[] rgb;
+
         public static byte[] Serialize(object obj)
         {
             if (obj == null)
@@ -76,6 +76,8 @@ namespace JRenderer_Client
         static public PpmImage ReadPpmFile(string fileName)
         {
             string context = File.ReadAllText(fileName);
+            context = context.Replace("\n", " ");
+            context = context.Replace("\r", "");
             string[] datas = context.Split(' ');
             var image = new PpmImage();
             if (datas[0] == "P3")
@@ -84,19 +86,10 @@ namespace JRenderer_Client
                 image.height = int.Parse(datas[2]);
                 image.colorRange = int.Parse(datas[3]);
                 var pixels = image.width * image.height;
-                image.rgb = new Tuple<int, int, int>[pixels];
-                for(int i = 0; i < pixels; i++)
+                image.rgb = new byte[pixels * 3];
+                for (int i = 0; i < pixels * 3; i++)
                 {
-                    var offset = i * 3 + 4;
-                    if(offset + 2 >= pixels)
-                    {
-                        throw new Exception("Bad File");
-                    }
-                    image.rgb[i] = new Tuple<int, int, int>(
-                        int.Parse(datas[offset]),
-                        int.Parse(datas[offset + 1]),
-                        int.Parse(datas[offset + 2])
-                    );
+                    image.rgb[i] = byte.Parse(datas[i + 4]);
                 }
             }
             else

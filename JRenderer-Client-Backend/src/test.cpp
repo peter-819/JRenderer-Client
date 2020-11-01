@@ -97,3 +97,8 @@ void Triangle(){
 
 }
 
+JAPI void ImageRenderTest(int width,int height,byte* data) {
+    for (int i = 0; i < width * height; i++) {
+        std::cout << (int)data[i] << " " << (int)data[i + 1] << " " << (int)data[i + 2] << std::endl;
+    }
+}

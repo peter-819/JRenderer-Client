@@ -42,6 +42,7 @@ namespace JRenderer_Client
             string password = Password.Password;
 
             ClientSend.SendLoginData(username,password);
+            
         }
     }
 }

@@ -1,4 +1,5 @@
 using JRenderer_Client;
+using JRenderer_Client.src;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ public class ClientHandle
         int length = _packet.ReadInt();
         byte[] data = _packet.ReadBytes(length);
         PpmImage image = PpmImage.Deserialize(data);
+        glue.TestImageSending(image);
     }
 
     public static void LoginResultReceived(Packet packet)
