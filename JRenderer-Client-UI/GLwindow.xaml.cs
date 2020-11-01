@@ -23,6 +23,7 @@ namespace JRenderer_Client
     public partial class GLwindow : Window
     {
         private GLHost glHost;
+        private GLServer glServer;
         public GLwindow()
         {
             InitializeComponent();
@@ -32,6 +33,9 @@ namespace JRenderer_Client
         {
             glHost = new GLHost(BorderHost);
             BorderHost.Child = glHost;
+
+            glServer = new GLServer(BorderServer);
+            BorderServer.Child = glServer;
         }
     }
 }

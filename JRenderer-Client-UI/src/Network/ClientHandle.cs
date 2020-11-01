@@ -29,7 +29,7 @@ public class ClientHandle
         int length = _packet.ReadInt();
         byte[] data = _packet.ReadBytes(length);
         PpmImage image = PpmImage.Deserialize(data);
-        glue.TestImageSending(image);
+        Backend.TestImageSending(image);
     }
 
     public static void LoginResultReceived(Packet packet)

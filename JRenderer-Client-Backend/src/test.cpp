@@ -20,14 +20,16 @@ unsigned int fragmentShader;
 unsigned int shaderProgram;
 void Triangle();
 
-JAPI bool InitOpenGL(HWND hwnd,int width,int height) {
+JAPI void InitBackend() {
     Log::Init();
+}
 
+JAPI JRenderer::Window* InitOpenGL(HWND hwnd,int width,int height) {
     window = JRenderer::Window::Create(hwnd,width,height);
     device.SetViewport(0, 0, width, height);
 
     Triangle();
-    return true;
+    return window;
 }
 JAPI void OpenGLRender() {
     window->BeginFrame();

@@ -10,7 +10,7 @@ using System.Windows.Interop;
 
 namespace JRenderer_Client.src
 {
-    class GLHost : HwndHost
+    class GLServer : HwndHost
     {
         #region Win32_Dll_Import
 
@@ -38,7 +38,7 @@ namespace JRenderer_Client.src
         private IntPtr glWindowHandle;
         private Thread renderThread;
         private bool isRunning = true;
-        public GLHost(Border border)
+        public GLServer(Border border)
         {
             parent = border;
         }

@@ -63,6 +63,7 @@
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\GLHost.cs" />
+    <Compile Include="src\GLServer.cs" />
     <Compile Include="src\glue.cs" />
     <Compile Include="src\Network\Client.cs" />
     <Compile Include="src\Network\ClientHandle.cs" />

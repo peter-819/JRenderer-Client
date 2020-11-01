@@ -23,17 +23,6 @@ namespace JRenderer_Client
         public Login()
         {
             InitializeComponent();
-            Thread thread = new Thread(() =>
-            {
-                Client.Create();
-                Client.instance.ConnectToServer();
-                while (true)
-                {
-                    ThreadManager.UpdateMain();
-                    Thread.Sleep(10);
-                }
-            });
-            thread.Start();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -42,7 +31,9 @@ namespace JRenderer_Client
             string password = Password.Password;
 
             ClientSend.SendLoginData(username,password);
-            
+            var glWindow = new GLwindow();
+            glWindow.Show();
+            this.Close();
         }
     }
 }

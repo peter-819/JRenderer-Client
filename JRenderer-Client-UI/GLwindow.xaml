@@ -12,7 +12,8 @@
             <ColumnDefinition Width="785*"/>
             <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
-        <Border Name ="BorderHost" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="345" Margin="39,40,0,0" VerticalAlignment="Top" Width="716"/>
+        <Border Name ="BorderHost" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="355" Margin="39,35,0,0" VerticalAlignment="Top" Width="316"/>
+        <Border Name ="BorderServer" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="355" Margin="430,35,0,0" VerticalAlignment="Top" Width="316"/>
 
     </Grid>
 </Window>
