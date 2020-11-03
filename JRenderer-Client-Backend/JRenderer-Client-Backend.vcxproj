@@ -162,8 +162,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="src\ClientGL.cpp" />
     <ClCompile Include="src\Includes\Jpch.cpp" />
-    <ClCompile Include="src\Jlog.cpp" />
+    <ClCompile Include="src\ServerGL.cpp" />
+    <ClCompile Include="src\Utility\Jlog.cpp" />
     <ClCompile Include="src\RenderSystem\Device.cpp" />
     <ClCompile Include="src\RenderSystem\OpenGL\GLContext.cpp" />
     <ClCompile Include="src\RenderSystem\OpenGL\GLDevice.cpp" />
@@ -172,13 +174,12 @@
     <ClCompile Include="src\RenderSystem\OpenGL\GLVertexBuffer.cpp" />
     <ClCompile Include="src\RenderSystem\OpenGL\GLWindow.cpp" />
     <ClCompile Include="src\RenderSystem\Window.cpp" />
-    <ClCompile Include="src\test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Jlog.h" />
+    <ClInclude Include="src\Utility\Jlog.h" />
     <ClInclude Include="src\Includes\Jpch.h" />
     <ClInclude Include="src\RenderSystem\Descriptors.h" />
     <ClInclude Include="src\RenderSystem\Device.h" />

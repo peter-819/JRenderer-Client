@@ -24,7 +24,7 @@
 #include <Windows.h>
 #endif
 
-#include "../Jlog.h"
+#include "Utility/Jlog.h"
 
 #define JAPI extern "C" __declspec(dllexport) 
 

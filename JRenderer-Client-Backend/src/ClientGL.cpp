@@ -5,9 +5,7 @@
 #include <GL/gl.h>
 
 
-JRenderer::Window* window;
 JRenderer::Device& device = JRenderer::Device::Instance();
-
 float vertices[] = {
     -0.5f, -0.5f, 0.0f,
      0.5f, -0.5f, 0.0f,
@@ -20,16 +18,18 @@ unsigned int fragmentShader;
 unsigned int shaderProgram;
 void Triangle();
 
-JAPI bool InitOpenGL(HWND hwnd,int width,int height) {
+JAPI void InitBackend() {
     Log::Init();
+}
 
-    window = JRenderer::Window::Create(hwnd,width,height);
-    //device.SetViewport(0, 0, width, height);
+JAPI JRenderer::Window* InitOpenGL(HWND hwnd, int width, int height) {
+    JRenderer::Window* window = JRenderer::Window::Create(hwnd, width, height);
+    device.SetViewport(0, 0, width, height);
 
     Triangle();
-    return true;
+    return window;
 }
-JAPI void OpenGLRender() {
+JAPI void OpenGLRender(JRenderer::Window* window) {
     window->BeginFrame();
     // render
     // ------
@@ -40,9 +40,9 @@ JAPI void OpenGLRender() {
     glDrawArrays(GL_TRIANGLES, 0, 3);;
     window->EndFrame();
 }
-JAPI void Shutdown() {
+JAPI void Shutdown(JRenderer::Window* window) {
     delete window;
-    device.Destroy();
+    //device.Destroy();
 }
 const char* vertexShaderSource = R"(
 #version 330 core
@@ -64,7 +64,7 @@ void main()
 } 
 )";
 
-void Triangle(){
+void Triangle() {
     // ×ÅÉ«Æ÷
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -94,5 +94,5 @@ void Triangle(){
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
-}
 
+}
