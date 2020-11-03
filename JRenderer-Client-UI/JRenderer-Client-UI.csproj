@@ -25,6 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -64,7 +65,7 @@
     </Compile>
     <Compile Include="src\GLHost.cs" />
     <Compile Include="src\GLServer.cs" />
-    <Compile Include="src\glue.cs" />
+    <Compile Include="src\Backend.cs" />
     <Compile Include="src\Network\Client.cs" />
     <Compile Include="src\Network\ClientHandle.cs" />
     <Compile Include="src\Network\ClientSend.cs" />

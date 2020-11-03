@@ -28,6 +28,10 @@ namespace JRenderer_Client.src
         public static extern IntPtr InitServerOpenGL(IntPtr hwnd,int width,int height);
         [DllImport(BackendDll)]
         public static extern void ServerOpenGLRender(IntPtr window);
+        [DllImport(BackendDll)]
+        public static extern IntPtr RTrender();
+        [DllImport(BackendDll)]
+        public static extern void RTInitilize();
         #endregion
 
         public static void TestImageSending(PpmImage image)

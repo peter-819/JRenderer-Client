@@ -76,6 +76,12 @@ JAPI void ServerOpenGLRender(JRenderer::Window* window) {
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(mshaderProgram);
     glBindVertexArray(mVAO); 
+
+    glBindTexture(GL_TEXTURE_2D, tex);
+    if (isImageDone) {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, imageWidth, imageHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, imageData);
+    }
+
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, tex);
     glUniform1i(glGetUniformLocation(mshaderProgram,"tex"), 0);

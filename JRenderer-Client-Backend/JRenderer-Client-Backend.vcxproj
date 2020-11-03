@@ -164,6 +164,9 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="src\ClientGL.cpp" />
     <ClCompile Include="src\Includes\Jpch.cpp" />
+    <ClCompile Include="src\RTtest.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\ServerGL.cpp" />
     <ClCompile Include="src\Utility\Jlog.cpp" />
     <ClCompile Include="src\RenderSystem\Device.cpp" />
@@ -179,6 +182,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\geometry.h" />
     <ClInclude Include="src\Utility\Jlog.h" />
     <ClInclude Include="src\Includes\Jpch.h" />
     <ClInclude Include="src\RenderSystem\Descriptors.h" />

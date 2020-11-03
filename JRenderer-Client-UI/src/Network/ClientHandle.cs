@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using System.Runtime.InteropServices;
 
 /// <summary>
 /// 用来处理从服务端收到数据的函数
@@ -28,7 +29,24 @@ public class ClientHandle
     {
         int length = _packet.ReadInt();
         byte[] data = _packet.ReadBytes(length);
-        PpmImage image = PpmImage.Deserialize(data);
+        //PpmImage image = PpmImage.Deserialize(data);
+        //Backend.RTInitilize();
+        PpmImage image = new PpmImage();
+        image.width = 480;
+        image.height = 270;
+        image.rgb = new byte[image.width * image.height * 3];
+        Backend.RTInitilize();
+        IntPtr ptr = Backend.RTrender();
+        IntPtr iter = ptr;
+        for(int i = 0; i < image.width * image.height; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                float color = (float)Marshal.PtrToStructure(iter, typeof(float));
+                image.rgb[i * 3 + j] = (byte)color;
+                iter = (IntPtr)(iter.ToInt64() + Marshal.SizeOf(typeof(float)));
+            }
+        }
         Backend.TestImageSending(image);
     }
 
