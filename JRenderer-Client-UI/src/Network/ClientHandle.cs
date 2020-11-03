@@ -56,6 +56,7 @@ public class ClientHandle
         if(res == true)
         {
             Console.WriteLine("Login success");
+            FormManager.Login();
         }
         else
         {

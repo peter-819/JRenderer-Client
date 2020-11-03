@@ -35,5 +35,16 @@ namespace JRenderer_Client
             glWindow.Show();
             this.Close();
         }
+
+        private void MinClick(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState != WindowState.Minimized)
+                this.WindowState = WindowState.Minimized;
+        }
+
+        private void CloseClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
