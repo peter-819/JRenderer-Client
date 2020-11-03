@@ -13,8 +13,8 @@
             <ColumnDefinition Width="11*"/>
             <ColumnDefinition Width="69*"/>
         </Grid.ColumnDefinitions>
-        <Border x:Name ="BorderHost1" BorderBrush="#8D8DAA" BorderThickness="2" HorizontalAlignment="Left" Height="345" Margin="21,40,0,0" VerticalAlignment="Top" Width="317" CornerRadius="14" Grid.Column="1"/>
-        <Border x:Name ="BorderHost2" BorderBrush="#8D8DAA" BorderThickness="2" HorizontalAlignment="Left" Height="345" Margin="358,40,0,0" VerticalAlignment="Top" Width="317" CornerRadius="14" Grid.Column="1"/>
+        <Border x:Name ="BorderHost" BorderBrush="#8D8DAA" BorderThickness="2" HorizontalAlignment="Left" Height="345" Margin="21,40,0,0" VerticalAlignment="Top" Width="317" CornerRadius="14" Grid.Column="1"/>
+        <Border x:Name ="BorderServer" BorderBrush="#8D8DAA" BorderThickness="2" HorizontalAlignment="Left" Height="345" Margin="358,40,0,0" VerticalAlignment="Top" Width="317" CornerRadius="14" Grid.Column="1"/>
 
     </Grid>
 </Window>
