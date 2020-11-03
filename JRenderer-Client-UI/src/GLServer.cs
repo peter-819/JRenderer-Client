@@ -44,12 +44,12 @@ namespace JRenderer_Client.src
         }
         private void Render(object data)
         {
-            glWindowHandle = Backend.InitOpenGL(hwnd, (int)parent.ActualWidth, (int)parent.ActualHeight);
+            glWindowHandle = Backend.InitServerOpenGL(hwnd, (int)parent.ActualWidth, (int)parent.ActualHeight);
             while (isRunning)
             {
-                Backend.OpenGLRender();
+                Backend.ServerOpenGLRender(glWindowHandle);
             }
-            Backend.Shutdown();
+            Backend.Shutdown(glWindowHandle);
         }
         protected override HandleRef BuildWindowCore(HandleRef hwndParent)
         {

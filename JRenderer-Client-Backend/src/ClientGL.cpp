@@ -5,9 +5,7 @@
 #include <GL/gl.h>
 
 
-JRenderer::Window* window;
 JRenderer::Device& device = JRenderer::Device::Instance();
-
 float vertices[] = {
     -0.5f, -0.5f, 0.0f,
      0.5f, -0.5f, 0.0f,
@@ -24,14 +22,14 @@ JAPI void InitBackend() {
     Log::Init();
 }
 
-JAPI JRenderer::Window* InitOpenGL(HWND hwnd,int width,int height) {
-    window = JRenderer::Window::Create(hwnd,width,height);
+JAPI JRenderer::Window* InitOpenGL(HWND hwnd, int width, int height) {
+    JRenderer::Window* window = JRenderer::Window::Create(hwnd, width, height);
     device.SetViewport(0, 0, width, height);
 
     Triangle();
     return window;
 }
-JAPI void OpenGLRender() {
+JAPI void OpenGLRender(JRenderer::Window* window) {
     window->BeginFrame();
     // render
     // ------
@@ -42,9 +40,9 @@ JAPI void OpenGLRender() {
     glDrawArrays(GL_TRIANGLES, 0, 3);;
     window->EndFrame();
 }
-JAPI void Shutdown() {
+JAPI void Shutdown(JRenderer::Window* window) {
     delete window;
-    device.Destroy();
+    //device.Destroy();
 }
 const char* vertexShaderSource = R"(
 #version 330 core
@@ -66,7 +64,7 @@ void main()
 } 
 )";
 
-void Triangle(){
+void Triangle() {
     // ×ÅÉ«Æ÷
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -97,10 +95,4 @@ void Triangle(){
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
-}
-
-JAPI void ImageRenderTest(int width,int height,byte* data) {
-    for (int i = 0; i < width * height; i++) {
-        std::cout << (int)data[i] << " " << (int)data[i + 1] << " " << (int)data[i + 2] << std::endl;
-    }
 }
