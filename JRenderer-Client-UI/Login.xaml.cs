@@ -43,5 +43,16 @@ namespace JRenderer_Client
 
             ClientSend.SendLoginData(username,password);
         }
+
+        private void MinClick(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState != WindowState.Minimized)
+                this.WindowState = WindowState.Minimized;
+        }
+
+        private void CloseClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

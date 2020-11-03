@@ -1,4 +1,5 @@
 using JRenderer_Client;
+using JRenderer_Client.src;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,6 +37,7 @@ public class ClientHandle
         if(res == true)
         {
             Console.WriteLine("Login success");
+            FormManager.Login();
         }
         else
         {

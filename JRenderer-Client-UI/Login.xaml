@@ -3,17 +3,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:JRenderer_Client"
+        xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Login" Height="227" Width="219">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="85*"/>
-            <ColumnDefinition Width="311*"/>
-        </Grid.ColumnDefinitions>
-        <TextBox Name="Username" HorizontalAlignment="Left" Height="23" Margin="50,32,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <PasswordBox Name="Password" HorizontalAlignment="Left" Margin="50,70,0,0" VerticalAlignment="Top" Height="23" Width="120" Grid.ColumnSpan="2"/>
-        <Button Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="70,125,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="LoginButton_Click"/>
+        Title="Login" Height="450" Width="350" WindowStyle="None" ResizeMode="NoResize">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" Height="42" Background="#8D8DAA">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="7,0">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"  Height="20" Width="20" Click="MinClick" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="WindowMinimize"></materialDesign:PackIcon>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Height="20" Width="20" Click="CloseClick" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Power"></materialDesign:PackIcon>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid>
+            <TextBox Name="Username" HorizontalAlignment="Center" Height="43" Margin="115,115,115,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" 
+                     materialDesign:HintAssist.Hint="User name" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <PasswordBox Name="Password" HorizontalAlignment="Left" Margin="116,180,0,0" VerticalAlignment="Top" Height="44" Width="120"
+                     materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+            <Button Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="116,283,0,0" VerticalAlignment="Top" Width="120" Click="LoginButton_Click" Height="33" Background="#FF8D8DAA" BorderBrush="#FF8D8DAA"/>
+            <materialDesign:DialogHost Content="JRender" HorizontalAlignment="Left" Margin="124,51,0,0" VerticalAlignment="Top" FontSize="27" Foreground="#FF8D8DAA"/>
 
-    </Grid>
+        </Grid>
+    </DockPanel>
 </Window>

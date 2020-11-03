@@ -1,18 +1,20 @@
-﻿<Window x:Class="JRenderer_Client.GLwindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JRenderer_Client"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="JRenderer_Client.GLwindow"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="GLwindow" Height="450" Width="800">
+        Title="GLwindow" Height="450" Width="800"  WindowStyle="None" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="785*"/>
-            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="69*"/>
         </Grid.ColumnDefinitions>
-        <Border Name ="BorderHost" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="345" Margin="39,40,0,0" VerticalAlignment="Top" Width="716"/>
+        <Border x:Name ="BorderHost1" BorderBrush="#8D8DAA" BorderThickness="2" HorizontalAlignment="Left" Height="345" Margin="21,40,0,0" VerticalAlignment="Top" Width="317" CornerRadius="14" Grid.Column="1"/>
+        <Border x:Name ="BorderHost2" BorderBrush="#8D8DAA" BorderThickness="2" HorizontalAlignment="Left" Height="345" Margin="358,40,0,0" VerticalAlignment="Top" Width="317" CornerRadius="14" Grid.Column="1"/>
 
     </Grid>
 </Window>

@@ -30,8 +30,8 @@ namespace JRenderer_Client
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            glHost = new GLHost(BorderHost);
-            BorderHost.Child = glHost;
+            glHost = new GLHost(BorderHost1);
+            BorderHost1.Child = glHost;
         }
     }
 }

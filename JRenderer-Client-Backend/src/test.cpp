@@ -24,7 +24,7 @@ JAPI bool InitOpenGL(HWND hwnd,int width,int height) {
     Log::Init();
 
     window = JRenderer::Window::Create(hwnd,width,height);
-    device.SetViewport(0, 0, width, height);
+    //device.SetViewport(0, 0, width, height);
 
     Triangle();
     return true;
@@ -94,6 +94,5 @@ void Triangle(){
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
-
 }
 
