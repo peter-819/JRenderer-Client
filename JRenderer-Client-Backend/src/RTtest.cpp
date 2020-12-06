@@ -89,7 +89,7 @@ Vec3f cast_ray(const Vec3f& orig, const Vec3f& dir, size_t depth = 0) {
     Vec3f point, N;
     Material material;
 
-    if (depth > 2 || !scene_intersect(orig, dir, point, N, material)) {
+    if (depth > 5 || !scene_intersect(orig, dir, point, N, material)) {
         return Vec3f(0.2, 0.7, 0.8); // background color
     }
 
@@ -117,8 +117,8 @@ Vec3f cast_ray(const Vec3f& orig, const Vec3f& dir, size_t depth = 0) {
     return material.diffuse_color * diffuse_light_intensity * material.albedo[0] + Vec3f(1., 1., 1.) * specular_light_intensity * material.albedo[1] + reflect_color * material.albedo[2] + refract_color * material.albedo[3];
 }
 
-const int   width = 480;
-const int   height = 270;
+const int   width = 960;
+const int   height = 540;
 const float fov = M_PI / 3.0;
 
 Vec3f* framebuffer;
@@ -151,9 +151,9 @@ JAPI void RTInitilize() {
     Material     mirror(1.0, Vec4f(0.0, 10.0, 0.8, 0.0), Vec3f(1.0, 1.0, 1.0), 1425.);
 
     spheres.push_back(Sphere(Vec3f(-3, 0, -16), 2, ivory));
-    //spheres.push_back(Sphere(Vec3f(-1.0, -1.5, -12), 2,      glass));
-    //spheres.push_back(Sphere(Vec3f( 1.5, -0.5, -18), 3, red_rubber));
-    //spheres.push_back(Sphere(Vec3f( 7,    5,   -18), 4,     mirror));
+    spheres.push_back(Sphere(Vec3f(-1.0, -1.5, -12), 2,      glass));
+    spheres.push_back(Sphere(Vec3f( 1.5, -0.5, -18), 3, red_rubber));
+    spheres.push_back(Sphere(Vec3f( 7,    5,   -18), 4,     mirror));
 
     lights.push_back(Light(Vec3f(-20, 20, 20), 1.5));
     lights.push_back(Light(Vec3f(30, 50, -25), 1.8));

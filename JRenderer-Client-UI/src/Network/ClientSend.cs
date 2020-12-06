@@ -67,5 +67,74 @@ public class ClientSend
             SendTCPData(_packet);
         }
     }
+
+    public static void SendInitInfo(int width,int height)
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.sendInitInfo))
+        {
+            _packet.Write(Client.instance.myId);
+            _packet.Write(width);
+            _packet.Write(height);
+            SendTCPData(_packet);
+        }
+    }
+    /// <summary>
+    /// send button event
+    /// </summary>
+    /// <param name="button">0:left 1:right</param>
+    /// <param name="action">0:pressed 1:released</param>
+    public static void SendMouseButtonEvent(byte button,byte action)
+    {
+        using(Packet packet = new Packet((int)ClientPackets.sendMouseButtonEvent))
+        {
+            packet.Write(Client.instance.myId);
+            packet.Write(button);
+            packet.Write(action);
+            SendUDPData(packet);
+        }
+    }
+
+    public static void SendMouseMoveEvent(int X,int Y)
+    {
+        using(Packet packet = new Packet((int)ClientPackets.sendMouseMoveEvent))
+        {
+            packet.Write(Client.instance.myId);
+            packet.Write(X);
+            packet.Write(Y);
+            SendUDPData(packet);
+        }
+    }
+    
+    public static void SendCreateSignal(int shape,double scale,double x,double y,double z)
+    {
+        using(Packet packet = new Packet((int)ClientPackets.sendCreateSignal))
+        {
+            packet.Write(Client.instance.myId);
+            packet.Write(shape);
+
+            packet.Write((float)scale);
+            packet.Write((float)x);
+            packet.Write((float)y);
+            packet.Write((float)z);
+            SendTCPData(packet);
+        }
+    }
+
+    public static void SendLightData(double als,double dls,double slr,double slp,double x, double y,double z)
+    {
+        using (Packet packet = new Packet((int)ClientPackets.sendLightData))
+        {
+            packet.Write(Client.instance.myId);
+            packet.Write((float)als);
+            packet.Write((float)dls);
+            packet.Write((float)slr);
+            packet.Write((float)slp);
+            packet.Write((float)x);
+            packet.Write((float)y);
+            packet.Write((float)z);
+            SendTCPData(packet);
+        }
+    }
+
     #endregion
 }

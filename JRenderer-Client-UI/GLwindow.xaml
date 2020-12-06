@@ -7,14 +7,75 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="JRenderer_Client.GLwindow"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="GLwindow" Height="450" Width="800"  WindowStyle="None" ResizeMode="NoResize">
+        Title="GLwindow" Height="689.5" Width="1035"  WindowStyle="None" ResizeMode="NoResize"
+        MouseMove="Window_MouseMove" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        MouseRightButtonDown="Window_MouseRightButtonDown"
+        MouseLeftButtonUp="Window_MouseLeftButtonUp"
+        MouseRightButtonUp="Window_MouseRightButtonUp"
+    >
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="11*"/>
-            <ColumnDefinition Width="69*"/>
         </Grid.ColumnDefinitions>
-        <Border x:Name ="BorderHost" BorderBrush="#8D8DAA" BorderThickness="2" HorizontalAlignment="Left" Height="345" Margin="21,40,0,0" VerticalAlignment="Top" Width="317" CornerRadius="14" Grid.Column="1"/>
-        <Border x:Name ="BorderServer" BorderBrush="#8D8DAA" BorderThickness="2" HorizontalAlignment="Left" Height="345" Margin="358,40,0,0" VerticalAlignment="Top" Width="317" CornerRadius="14" Grid.Column="1"/>
+        <!--<Border x:Name ="BorderHost" BorderBrush="#8D8DAA" BorderThickness="2" 
+                HorizontalAlignment="Left" Height="345" Margin="21,40,0,0"
+                VerticalAlignment="Top" Width="317" CornerRadius="14" Grid.Column="1"/>-->
 
+        <materialDesign:ColorZone
+            Mode="PrimaryLight"
+            Padding="16" Height="39">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+      VerticalAlignment="Center"
+      Margin="16,-4,0,-11"
+      Height="22" Width="118" FontSize="15" Text="    JRender" />
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <Menu IsMainMenu="True" Margin="0,52,0,364">
+            <!--<MenuItem Header="_File" Height="30" Width="auto">
+                <MenuItem Header="Save"  InputGestureText="Ctrl+S" Icon="{materialDesign:PackIcon Kind=ContentSave}"></MenuItem>
+                <MenuItem Header="Save As.."  Icon="{materialDesign:PackIcon Kind=ContentSave}"/>
+                <MenuItem Header="Import" Click="ImportBtn_Click" InputGestureText="Ctrl+I" Icon="{materialDesign:PackIcon Kind=ExitToApp}" />
+            </MenuItem>
+            <MenuItem Header="_Edit" Height="30" Width="auto">
+                <MenuItem Header="New LightSource" Click="NewLightBtn_Click" Icon="{materialDesign:PackIcon Kind=TooltipAdd}"></MenuItem>
+                <MenuItem Header="Clear Screen" Click="ClearBtn_Click" Icon="{materialDesign:PackIcon Kind=Clear}"/>
+            </MenuItem>-->
+        </Menu>
+
+        <Border x:Name ="BorderServer" BorderBrush="#8D8DAA" BorderThickness="2"
+                HorizontalAlignment="Left" Height="560" Margin="10,120,0,0"
+                VerticalAlignment="Top" Width="1015" CornerRadius="14"/>
+
+        <ToolBarTray Margin="31,54,119,575">
+            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+                <Button ToolTip="Add A Cube" 
+                        Click="AddCubeButton_OnClick"
+                        Content="{materialDesign:PackIcon Kind=Cube}" />
+                <Button ToolTip="Add A Plane"
+                        Click="AddPlaneButton_OnClick"
+                        Content="{materialDesign:PackIcon Kind=SurfaceArea}" />
+                <Button ToolTip="Import A Model"
+                        Click="ImportModelButton_OnClick"
+                        Content="{materialDesign:PackIcon Kind=Upload}" />
+                <Separator />
+
+
+                <Button ToolTip="Add A Light"
+                        Click="AddLightButton_Click"
+                        Content="{materialDesign:PackIcon Kind=Lightbulb}" />
+                <Separator />
+            </ToolBar>
+        </ToolBarTray>
+
+        <!--<Grid Grid.Column="2" HorizontalAlignment="Left" Margin="86,70,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="608" Width="275">
+            <TreeView Name="treeView">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Lights}">
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </Grid>-->
     </Grid>
 </Window>

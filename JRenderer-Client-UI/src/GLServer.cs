@@ -38,6 +38,7 @@ namespace JRenderer_Client.src
         private IntPtr glWindowHandle;
         private Thread renderThread;
         private bool isRunning = true;
+        
         public GLServer(Border border)
         {
             parent = border;
@@ -45,9 +46,24 @@ namespace JRenderer_Client.src
         private void Render(object data)
         {
             glWindowHandle = Backend.InitServerOpenGL(hwnd, (int)parent.ActualWidth, (int)parent.ActualHeight);
+            long lastTick = 0, nowTick = 0;
             while (isRunning)
             {
-                Backend.ServerOpenGLRender(glWindowHandle);
+                if(FrameQueue.queue.Count == 0)
+                {
+                    continue;
+                }
+                PpmImage nowFrame = FrameQueue.queue.Dequeue();
+                //GC.Collect();
+                IntPtr ptr = Marshal.UnsafeAddrOfPinnedArrayElement(nowFrame.rgb,0);
+                Backend.ServerOpenGLRender(glWindowHandle, nowFrame.width, nowFrame.height, ptr);
+                //PollEvents();
+                if(lastTick != 0)
+                {   
+                    nowTick = DateTime.Now.Ticks;
+                    Thread.Sleep((int)((nowTick - lastTick) / 10000));
+                }
+                lastTick = nowTick;
             }
             Backend.Shutdown(glWindowHandle);
         }

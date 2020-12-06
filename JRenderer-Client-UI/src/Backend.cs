@@ -19,24 +19,20 @@ namespace JRenderer_Client.src
         public static extern void OpenGLRender(IntPtr window);
         [DllImport(BackendDll)]
         public static extern void Shutdown(IntPtr window);
-        [DllImport(BackendDll)]
-        public static extern void ImageRenderTest(int width,int height, [Out] byte[] data);
-        #endregion
+       #endregion
 
         #region Backend_Server_GL_Dll_Import
         [DllImport(BackendDll)]
         public static extern IntPtr InitServerOpenGL(IntPtr hwnd,int width,int height);
         [DllImport(BackendDll)]
-        public static extern void ServerOpenGLRender(IntPtr window);
+        public static extern void ServerOpenGLRender(IntPtr window,int width,int height,IntPtr data);
         [DllImport(BackendDll)]
         public static extern IntPtr RTrender();
         [DllImport(BackendDll)]
         public static extern void RTInitilize();
+        [DllImport(BackendDll)]
+        public static extern void DecompressJPEG(IntPtr inBuffer, int inSize, ref IntPtr outBuffer,
+                            ref int outSize, ref int width, ref int height, ref int components);
         #endregion
-
-        public static void TestImageSending(PpmImage image)
-        {
-            ImageRenderTest(image.width, image.height, image.rgb);
-        }
     }
 }

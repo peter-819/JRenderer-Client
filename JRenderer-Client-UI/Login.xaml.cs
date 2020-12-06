@@ -31,9 +31,9 @@ namespace JRenderer_Client
             string password = Password.Password;
 
             ClientSend.SendLoginData(username,password);
-            var glWindow = new GLwindow();
-            glWindow.Show();
-            this.Close();
+            //var glWindow = new GLwindow();
+            //glWindow.Show();
+            //this.Close();
         }
 
         private void MinClick(object sender, RoutedEventArgs e)
@@ -45,6 +45,11 @@ namespace JRenderer_Client
         private void CloseClick(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow = this;
         }
     }
 }

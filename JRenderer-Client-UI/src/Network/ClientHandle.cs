@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using System.Runtime.InteropServices;
+using System.Windows;
 
 /// <summary>
 /// 用来处理从服务端收到数据的函数
@@ -32,8 +33,8 @@ public class ClientHandle
         //PpmImage image = PpmImage.Deserialize(data);
         //Backend.RTInitilize();
         PpmImage image = new PpmImage();
-        image.width = 480;
-        image.height = 270;
+        image.width = 960;
+        image.height = 540;
         image.rgb = new byte[image.width * image.height * 3];
         Backend.RTInitilize();
         IntPtr ptr = Backend.RTrender();
@@ -47,7 +48,7 @@ public class ClientHandle
                 iter = (IntPtr)(iter.ToInt64() + Marshal.SizeOf(typeof(float)));
             }
         }
-        Backend.TestImageSending(image);
+        //Backend.TestImageSending(image);
     }
 
     public static void LoginResultReceived(Packet packet)
@@ -62,5 +63,31 @@ public class ClientHandle
         {
             Console.WriteLine("Login failed");
         }
+    }
+
+    public static void JPEGBufferReceived(Packet packet)
+    {
+        int length = packet.ReadInt();
+        byte[] data = packet.ReadBytes(length);
+        PpmImage image = new PpmImage();
+        
+        IntPtr outBuffer = IntPtr.Zero;
+        int outSize = 0;
+        int outWidth = 0;
+        int outHeight = 0;
+        int outComponents = 0;
+
+        IntPtr unmanagedPointer = Marshal.AllocHGlobal(data.Length);
+        Marshal.Copy(data, 0, unmanagedPointer, data.Length);
+        Backend.DecompressJPEG(unmanagedPointer, data.Length, 
+            ref outBuffer, ref outSize, ref outWidth, ref outHeight, ref outComponents);
+        Marshal.FreeHGlobal(unmanagedPointer);
+
+        image.rgb = new byte[outSize];
+        Marshal.Copy(outBuffer, image.rgb, 0, outSize);
+        image.width = outWidth;
+        image.height = outHeight;
+        
+        FrameQueue.queue.Enqueue(image);
     }
 }

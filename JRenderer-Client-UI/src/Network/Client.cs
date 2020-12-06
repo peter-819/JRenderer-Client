@@ -248,7 +248,8 @@ public class Client
         {
             {(int)ServerPackets.welcome, ClientHandle.Welcome },
             {(int)ServerPackets.ppmFile,ClientHandle.PpmReceived },
-            {(int)ServerPackets.LoginResult,ClientHandle.LoginResultReceived }
+            {(int)ServerPackets.LoginResult,ClientHandle.LoginResultReceived },
+            {(int)ServerPackets.JPEGBuffer,ClientHandle.JPEGBufferReceived }
         };
         Console.WriteLine("initialized packets");
     }

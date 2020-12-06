@@ -19,6 +19,7 @@ namespace JRenderer_Client
         {
             Thread thread = new Thread(() =>
             {
+                FrameQueue.Create();
                 Backend.InitBackend();
                 Client.Create();
                 Client.instance.ConnectToServer();

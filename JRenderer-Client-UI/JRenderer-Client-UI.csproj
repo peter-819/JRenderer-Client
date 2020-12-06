@@ -73,7 +73,15 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MeshSetting.xaml.cs">
+      <DependentUpon>MeshSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RenderSetting.xaml.cs">
+      <DependentUpon>RenderSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\EventsManager.cs" />
     <Compile Include="src\FormManager.cs" />
+    <Compile Include="src\FrameQueue.cs" />
     <Compile Include="src\GLHost.cs" />
     <Compile Include="src\GLServer.cs" />
     <Compile Include="src\Backend.cs" />
@@ -83,6 +91,7 @@
     <Compile Include="src\Network\Packet.cs" />
     <Compile Include="src\Network\ThreadManager.cs" />
     <Compile Include="src\PpmHelper.cs" />
+    <Compile Include="src\TreeViewNode.cs" />
     <Page Include="GLwindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +106,14 @@
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MeshSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RenderSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

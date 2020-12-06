@@ -9,11 +9,11 @@ float mvertices[] = {
         1.0f, -1.0f,
         -1.0f, 1.0f,
         1.0f, 1.0f,
-
-        0.0f, 1.0f,
-        1.0f, 1.0f,
+        
         0.0f, 0.0f,
         1.0f, 0.0f,
+        0.0f, 1.0f,
+        1.0f, 1.0f,
 };
 unsigned int mVBO;
 unsigned int mVAO;
@@ -43,25 +43,11 @@ uniform sampler2D tex;
 
 void main()
 {
+    //float y = 1.0 - tex_coord.y;
     FragColor = texture(tex,tex_coord);
     //FragColor = vec4(tex_coord.x,tex_coord.y,0,1.0);
 } 
 )";
-
-int imageWidth, imageHeight;
-byte* imageData;
-bool isImageDone;
-
-JAPI void ImageRenderTest(int width, int height, byte* data) {
-    if (imageData) {
-        delete[] imageData;
-    }
-    imageWidth = width;
-    imageHeight = height;
-    imageData = new byte[width * height * 3];
-    memcpy(imageData, data, width * height * 3);
-    isImageDone = true;
-}
 
 JAPI JRenderer::Window* InitServerOpenGL(HWND hwnd, int width, int height) {
     JRenderer::Window* window = JRenderer::Window::Create(hwnd, width, height);
@@ -70,17 +56,17 @@ JAPI JRenderer::Window* InitServerOpenGL(HWND hwnd, int width, int height) {
     return window;
 }
 
-JAPI void ServerOpenGLRender(JRenderer::Window* window) {
+JAPI void ServerOpenGLRender(JRenderer::Window* window,int width, int height, byte* data) {
     window->BeginFrame();
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(mshaderProgram);
     glBindVertexArray(mVAO); 
 
     glBindTexture(GL_TEXTURE_2D, tex);
-    if (isImageDone) {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, imageWidth, imageHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, imageData);
-    }
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, width,
+        height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, tex);
@@ -126,8 +112,5 @@ void TextureRECT() {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    if (isImageDone) {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, imageWidth, imageHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, imageData);
-    }
     glBindTexture(GL_TEXTURE_2D, 0);
 }

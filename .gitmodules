@@ -7,3 +7,6 @@
 [submodule "JRenderer-Client-Backend/thirdParty/spdlog"]
 	path = JRenderer-Client-Backend/thirdParty/spdlog
 	url = git@github.com:gabime/spdlog.git
+[submodule "JRenderer-Client-Backend/thirdParty/libjpeg-turbo"]
+	path = JRenderer-Client-Backend/thirdParty/libjpeg-turbo
+	url = https://github.com/libjpeg-turbo/libjpeg-turbo.git

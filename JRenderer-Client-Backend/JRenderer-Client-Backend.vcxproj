@@ -130,14 +130,14 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>Jpch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)thirdParty\glew\include;$(ProjectDir)thirdParty\spdlog\include;$(ProjectDir)src\Includes;$(ProjectDir)src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdParty\glew\include;$(ProjectDir)thirdParty\spdlog\include;$(ProjectDir)src\Includes;$(ProjectDir)src;$(ProjectDir)thirdParty\libjpeg-turbo;$(ProjectDir)thirdParty\jpeg-lib</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>$(ProjectDir)thirdParty\glew\lib\Release\x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)thirdParty\glew\lib\Release\x64;$(ProjectDir)thirdParty\jpeg-lib\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>jpeg.lib;turbojpeg.lib;opengl32.lib;glew32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -164,6 +164,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="src\ClientGL.cpp" />
     <ClCompile Include="src\Includes\Jpch.cpp" />
+    <ClCompile Include="src\JPEGdecoder.cpp" />
     <ClCompile Include="src\RTtest.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>

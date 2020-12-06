@@ -6,9 +6,10 @@ using System.Text;
 /// <summary>Sent from server to client.</summary>
 public enum ServerPackets
 {
-    welcome = 1, 
+    welcome = 1,
     ppmFile,
-    LoginResult
+    LoginResult,
+    JPEGBuffer
 }
 
 /// <summary>Sent from client to server.</summary>
@@ -18,7 +19,12 @@ public enum ClientPackets
     sendString,
     sendDataPacketInfo,
     sendDataPackets,
-    sendLoginData
+    sendLoginData,
+    sendInitInfo,
+    sendMouseButtonEvent,
+    sendMouseMoveEvent, 
+    sendCreateSignal,
+    sendLightData,
 }
 
 
